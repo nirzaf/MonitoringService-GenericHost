@@ -14,6 +14,7 @@ namespace DesignPatternsSample.BuilderSample
         {
             _name = name;
         }
+
         public Room WithBalcony()
         {
             balconyAvailable = true;
@@ -42,6 +43,5 @@ namespace DesignPatternsSample.BuilderSample
             Console.WriteLine($"This room {wifi} wi-fi Free");
             Console.WriteLine("");
         }
-
     }
 }

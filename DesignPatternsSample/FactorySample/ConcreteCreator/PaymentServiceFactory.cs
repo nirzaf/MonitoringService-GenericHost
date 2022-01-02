@@ -3,7 +3,6 @@ using DesignPatternsSample.FactorySample.ProductInterface;
 
 namespace DesignPatternsSample.FactorySample.ConcreteCreator
 {
-
     public class PaymentServiceFactory
     {
         public enum ServicesAvailable

@@ -1,14 +1,12 @@
-﻿using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace GenericHost
 {
-    class MonitoringService : IHostedService, IDisposable
+    internal class MonitoringService : IHostedService, IDisposable
     {
         private readonly ILogger _logger;
         private Timer _timer;
@@ -16,6 +14,12 @@ namespace GenericHost
         public MonitoringService(ILogger<MonitoringService> logger)
         {
             _logger = logger;
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
+            GC.SuppressFinalize(this);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -28,11 +32,6 @@ namespace GenericHost
             return Task.CompletedTask;
         }
 
-        private void DoWork(object state)
-        {
-            _logger.LogInformation("Monitoring Service is working.");
-        }
-
         public Task StopAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Monitoring Service is stopping.");
@@ -42,10 +41,9 @@ namespace GenericHost
             return Task.CompletedTask;
         }
 
-        public void Dispose()
+        private void DoWork(object state)
         {
-            _timer?.Dispose();
-            GC.SuppressFinalize(this);
+            _logger.LogInformation("Monitoring Service is working.");
         }
     }
 }

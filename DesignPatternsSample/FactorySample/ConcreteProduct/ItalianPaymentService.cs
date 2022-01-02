@@ -4,11 +4,11 @@ using System;
 
 namespace DesignPatternsSample.FactorySample.ConcreteProduct
 {
-    class ItalianPaymentService : IPaymentService
+    internal class ItalianPaymentService : IPaymentService
     {
-        public string EmailToCharge { get ; set ; }
-        public float MoneyToCharge { get ; set ; }
-        public EnumChargingOptions OptionToCharge { get ; set ; }
+        public string EmailToCharge { get; set; }
+        public float MoneyToCharge { get; set; }
+        public EnumChargingOptions OptionToCharge { get; set; }
 
         public bool ProcessCharging()
         {

@@ -5,9 +5,10 @@ using System.Text;
 
 namespace DesignPatternsSample.CommandSample.Invoker
 {
-    class CommandInvoker
-    {   
+    internal class CommandInvoker
+    {
         public ICommand Command { get; set; }
+
         public void Invoke()
         {
             Command.Execute();

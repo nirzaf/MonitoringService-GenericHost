@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DesignPatternsSample.DependencyInjectionSample.Concrete
 {
-    class UserAddress : IAddress
+    internal class UserAddress : IAddress
     {
         public string ZipCode { get; set; }
         public string Country { get; set; }

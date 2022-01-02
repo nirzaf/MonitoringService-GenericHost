@@ -6,17 +6,20 @@ using System.Text;
 
 namespace DesignPatternsSample.CommandSample.ConcreteCommand
 {
-    class DislikeCmd : ICommand
+    internal class DislikeCmd : ICommand
     {
         private Package _package;
+
         public DislikeCmd(Package package)
         {
             _package = package;
         }
+
         public void Execute()
         {
             _package.Dislike();
         }
+
         public void Undo()
         {
             _package.UndoDislike();

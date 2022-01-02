@@ -5,9 +5,9 @@ using System.Text;
 
 namespace DesignPatternsSample.DependencyInjectionSample.Concrete
 {
-    class DestinationAddress : IAddress
+    internal class DestinationAddress : IAddress
     {
-        public string ZipCode { get;  set; }
+        public string ZipCode { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
     }

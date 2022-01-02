@@ -17,10 +17,7 @@ namespace GenericHost
                     services.AddHostedService<HostedService>();
                     services.AddHostedService<MonitoringService>();
                 })
-                .ConfigureLogging((hostContext, configLogging) =>
-                {
-                    configLogging.AddConsole();
-                })
+                .ConfigureLogging((hostContext, configLogging) => { configLogging.AddConsole(); })
                 .Build();
 
             host.Run();

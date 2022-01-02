@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DesignPatternsSample.CommandSample.Receiver
 {
-    class Package
+    internal class Package
     {
         private int likes;
         private int dislikes;
@@ -15,6 +15,7 @@ namespace DesignPatternsSample.CommandSample.Receiver
         {
             Name = name;
         }
+
         public void Like()
         {
             likes++;
@@ -48,6 +49,7 @@ namespace DesignPatternsSample.CommandSample.Receiver
             dislikes++;
             PresentStatus();
         }
+
         public void UndoDislike()
         {
             dislikes--;
@@ -59,6 +61,7 @@ namespace DesignPatternsSample.CommandSample.Receiver
             loves++;
             PresentStatus();
         }
+
         public void UndoLove()
         {
             loves--;

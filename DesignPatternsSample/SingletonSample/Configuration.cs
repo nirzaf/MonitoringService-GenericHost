@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DesignPatternsSample.SingletonSample
 {
-
     public sealed class Configuration
     {
         #region Singleton Implementation
+
         private static Configuration _instance;
 
         public static Configuration Current
@@ -17,13 +17,10 @@ namespace DesignPatternsSample.SingletonSample
                 if (_instance == null)
                     _instance = new Configuration();
                 else
-                {
                     _instance.CheckCache();
-                }
                 return _instance;
             }
         }
-
 
         #endregion
 
@@ -55,9 +52,5 @@ namespace DesignPatternsSample.SingletonSample
             RandomNumber = random.Next(1024);
             LastTimeLoaded = DateTime.Now;
         }
-
-
-
-
     }
 }

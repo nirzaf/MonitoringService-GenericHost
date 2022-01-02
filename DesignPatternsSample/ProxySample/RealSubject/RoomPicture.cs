@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DesignPatternsSample.ProxySample.RealSubject
 {
-    class RoomPicture : IRoomPicture
+    internal class RoomPicture : IRoomPicture
     {
         public bool Loaded { get; private set; }
 
@@ -13,7 +13,7 @@ namespace DesignPatternsSample.ProxySample.RealSubject
         public string FileName { get; set; }
         public string[] Tags { get; set; }
         public string PictureData { get; private set; }
-        
+
         public void Get()
         {
             if (Id == Guid.Empty)

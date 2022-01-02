@@ -2,7 +2,7 @@
 
 namespace DesignPatternsSample.BuilderSample
 {
-    class FamilyRoomBuilder : IRoomBuilder
+    internal class FamilyRoomBuilder : IRoomBuilder
     {
         public Room Build()
         {

@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Hosting;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace GenericHost
 {
-    class HostedService : IHostedService
+    internal class HostedService : IHostedService
     {
-        private readonly ILogger _logger;
         private readonly IHostApplicationLifetime _appLifetime;
+        private readonly ILogger _logger;
 
         public HostedService(ILogger<HostedService> logger, IHostApplicationLifetime appLifetime)
         {

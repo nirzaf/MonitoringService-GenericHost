@@ -9,7 +9,7 @@ namespace DesignPatternsSample.ProxySample.Subject
         Guid Id { get; }
         string FileName { get; }
 
-        string[] Tags { get;  }
+        string[] Tags { get; }
 
         string PictureData { get; }
     }

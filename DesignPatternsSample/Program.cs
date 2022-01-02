@@ -14,18 +14,20 @@ using System.Threading;
 
 namespace DesignPatternsSample
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             #region Builder Sample
+
             Console.WriteLine("Builder Sample");
 
             var simpleRoom = new SimpleRoomBuilder().Build();
             simpleRoom.Describe();
-            
+
             var familyRoom = new FamilyRoomBuilder().Build();
             familyRoom.Describe();
+
             #endregion
 
             #region Factory Sample
@@ -39,27 +41,35 @@ namespace DesignPatternsSample
             #endregion
 
             #region Singleton Sample
+
             Console.WriteLine("Singleton Sample");
             SingletonDemo.Current.Message = "This text will be printed by " +
-                "the singleton.";
+                                            "the singleton.";
             SingletonDemo.Current.Print();
+
             #endregion
-            
+
             #region Singleton Configuration Sample
+
             Console.WriteLine("Singleton Configuration Sample");
-            for (int i = 0; i< 20; i++)
+            for (var i = 0; i < 20; i++)
             {
-                Console.WriteLine($"Random Number Parameter: {Configuration.Current.RandomNumber}. Last Time Loaded {Configuration.Current.LastTimeLoaded}");
+                Console.WriteLine(
+                    $"Random Number Parameter: {Configuration.Current.RandomNumber}. Last Time Loaded {Configuration.Current.LastTimeLoaded}");
                 Thread.Sleep(1000);
             }
+
             #endregion
-            
+
             #region Proxy Sample
+
             Console.WriteLine("Proxy Sample");
             ExecuteProxySample(new ProxyRoomPicture());
+
             #endregion
 
             #region Command Sample
+
             Console.WriteLine("");
             Console.WriteLine("Command Sample");
             var package = new Package("Shopping in New York");
@@ -101,25 +111,30 @@ namespace DesignPatternsSample
                             commandInvoker.Command = null;
                         }
                         else
+                        {
                             Console.WriteLine("There is no Command to Undo!");
+                        }
+
                         break;
                     default:
                         keepAsking = false;
                         break;
                 }
-                if ((keepAsking) && (commandInvoker.Command != null))
+
+                if (keepAsking && commandInvoker.Command != null)
                     commandInvoker.Invoke();
             }
 
-
-
             #endregion
-    
+
             #region Dependency Injection Sample
+
             var userAddress = new UserAddress { City = "São Paulo", Country = "Brazil", ZipCode = "01001-001" };
-            var destinationAddress = new UserAddress { City = "Rio de Janeiro", Country = "Brazil", ZipCode = "22460-050" };
+            var destinationAddress = new UserAddress
+                { City = "Rio de Janeiro", Country = "Brazil", ZipCode = "22460-050" };
             var distanceCalculator = new DistanceCalculator(userAddress, destinationAddress);
             distanceCalculator.Calculate();
+
             #endregion
 
             Console.ReadKey();
@@ -136,10 +151,10 @@ namespace DesignPatternsSample
             Console.WriteLine($"Image: {roomPicture.PictureData}");
         }
 
-        private static void ProcessCharging(PaymentServiceFactory.ServicesAvailable serviceToCharge, 
+        private static void ProcessCharging(PaymentServiceFactory.ServicesAvailable serviceToCharge,
             string emailToCharge, float moneyToCharge, EnumChargingOptions optionToCharge)
         {
-            PaymentServiceFactory factory = new PaymentServiceFactory();
+            var factory = new PaymentServiceFactory();
             var service = factory.Create(serviceToCharge);
             service.EmailToCharge = emailToCharge;
             service.MoneyToCharge = moneyToCharge;
